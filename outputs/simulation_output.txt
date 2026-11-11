@@ -1,0 +1,39 @@
+Emotion Fusion Simulation Output (2026-11-11 21:46:40)
+Config: seeds=5, n_test=3000, target_delta=[2.544, 1.504, 1.435, 0.887]
+
+Accuracy % (mean over 5 seeds, calibrated simulated posteriors)
+All four     Mean: 97.47 (std 0.17)  W.mean: 97.76 (std 0.14)  DS undisc: 98.47 (std 0.08)  DS disc: 97.10 (std 0.13)  Mamdani: 94.16 (std 0.46)
+30% missing  Mean: 92.64 (std 0.20)  W.mean: 92.63 (std 0.18)  DS undisc: 93.39 (std 0.24)  DS disc: 92.27 (std 0.32)  Mamdani: 89.93 (std 0.37)
+EEG missing  Mean: 89.45 (std 0.51)  W.mean: 89.12 (std 0.55)  DS undisc: 90.31 (std 0.47)  DS disc: 89.28 (std 0.54)  Mamdani: 86.91 (std 0.79)
+
+Per-seed Accuracy %:
+  [All four]
+    Mean      : [97.70, 97.50, 97.60, 97.23, 97.33]
+    W.mean    : [97.83, 97.87, 97.90, 97.67, 97.53]
+    DS undisc : [98.57, 98.50, 98.50, 98.47, 98.33]
+    DS disc   : [97.30, 97.03, 97.20, 97.00, 96.97]
+    Mamdani   : [94.73, 93.63, 94.57, 94.23, 93.63]
+  [30% missing]
+    Mean      : [92.80, 92.77, 92.77, 92.27, 92.60]
+    W.mean    : [92.43, 92.57, 92.97, 92.63, 92.57]
+    DS undisc : [93.63, 93.37, 93.67, 93.27, 93.03]
+    DS disc   : [91.97, 92.57, 92.53, 92.47, 91.80]
+    Mamdani   : [90.53, 89.40, 89.93, 90.00, 89.80]
+  [EEG missing]
+    Mean      : [88.83, 89.23, 89.10, 89.90, 90.20]
+    W.mean    : [88.37, 88.67, 89.13, 89.63, 89.80]
+    DS undisc : [89.80, 90.20, 89.83, 90.83, 90.87]
+    DS disc   : [88.57, 88.80, 89.30, 90.00, 89.73]
+    Mamdani   : [86.77, 85.67, 86.63, 87.97, 87.53]
+
+Demo sample inputs (reliability=[1.0, 0.739, 0.689, 0.445]):
+  Modality   Negative   Neutral  Positive
+  EEG           0.053     0.003     0.944
+  Image         0.005     0.009     0.986
+  Speech        0.021     0.328     0.650
+  Video         0.529     0.172     0.300
+Demo sample -> Positive support [0.    0.188 0.812] S_c [0.    0.146 0.631]
+  fallback=False
+  Negative  none
+  Neutral   {'R5': 0.344}
+  Positive  {'R2': 0.344, 'R7': 0.086, 'R8': 0.713, 'R9': 0.4}
