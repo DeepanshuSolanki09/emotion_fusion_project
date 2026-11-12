@@ -109,6 +109,26 @@ Data flows sequentially through five processing layers from raw/simulated poster
    - Resolves near-ties within `tie_eps=1e-3` by choosing the tied class with the largest aggregated area, and outputs `(pred, support, S, fallback)` where `support` normalizes `S` across classes.
    - `MamdaniFusion.explain` exposes the exact non-zero rule firing strengths (`> 1e-6`) for each class.
 
+#### Fuzzy Inference Rules (`R1`–`R15`)
+
+| Rule | IF – Condition | THEN – Output |
+|------|----------------|---------------|
+| `R1` | All available modalities High (at least 3) | `VeryHigh` |
+| `R2` | EEG High AND at least 2 other modalities Medium/High | `High` |
+| `R3` | EEG High AND all other available modalities Low | `Medium` (trust EEG) |
+| `R4` | EEG Medium AND at least 2 other modalities High | `High` |
+| `R5` | All available modalities Low | `Low` |
+| `R6` | All available modalities Medium (at least 2) | `Medium` |
+| `R7` | Three modalities agree High | `VeryHigh` |
+| `R8` | Two modalities agree High | `High` |
+| `R9` | One modality Low while at least 2 others High | `Medium` |
+| `R10` | Two modalities High vs two Low | `Low` |
+| `R11` | EEG absent AND some modality High | `Medium` |
+| `R12` | Image absent AND EEG High AND Speech/Video Medium or High | `High` |
+| `R13` | Speech absent AND EEG High AND Image/Video Medium or High | `High` |
+| `R14` | Video absent AND EEG High AND Image/Speech Medium or High | `High` |
+| `R15` | Only one modality available AND it is High | `Medium` |
+
 ## Installation
 
 Install the required dependencies listed in `requirements.txt` (`numpy`, `torch`, `torchvision`, `scikit-learn`, `scipy`, `librosa`):
